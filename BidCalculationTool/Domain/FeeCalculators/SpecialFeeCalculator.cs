@@ -3,7 +3,7 @@ using Domain.Exeptions;
 
 namespace Domain.FeeCalculators
 {
-    internal class SpecialFeeCalculator
+    public class SpecialFeeCalculator
     {
         public decimal Calculate(decimal price, VehicleType vehicleType)
         {

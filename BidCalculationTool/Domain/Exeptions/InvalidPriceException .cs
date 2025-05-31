@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Domain.Exeptions
+﻿namespace Domain.Exeptions
 {
-    internal class Exceptions
+    public class InvalidPriceException : Exception
     {
+        public InvalidPriceException()
+            : base("Price must be greater than zero.") { }
     }
 }
