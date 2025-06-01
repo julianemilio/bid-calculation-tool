@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Domain.FeeCalculators
+﻿namespace Domain.FeeCalculators
 {
-    internal class StorageFee
+    public class StorageFee
     {
+        public decimal Calculate() => 100; // Fixed fee
     }
 }
