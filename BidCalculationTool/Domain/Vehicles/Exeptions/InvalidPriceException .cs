@@ -1,4 +1,4 @@
-﻿namespace Domain.Exeptions
+﻿namespace Domain.Vehicles.Exeptions
 {
     public class InvalidPriceException : Exception
     {

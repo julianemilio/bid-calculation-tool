@@ -1,5 +1,4 @@
-﻿
-namespace Domain.Enums
+﻿namespace Domain.Vehicles.Enums
 {
     public enum VehicleType
     {

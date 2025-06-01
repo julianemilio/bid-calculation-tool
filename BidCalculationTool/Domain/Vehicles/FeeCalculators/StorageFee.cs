@@ -1,4 +1,4 @@
-﻿namespace Domain.FeeCalculators
+﻿namespace Domain.Vehicles.FeeCalculators
 {
     public class StorageFee
     {

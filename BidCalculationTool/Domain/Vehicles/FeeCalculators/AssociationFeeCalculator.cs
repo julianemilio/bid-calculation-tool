@@ -1,6 +1,6 @@
-﻿using Domain.Exeptions;
+﻿using Domain.Vehicles.Exeptions;
 
-namespace Domain.FeeCalculators
+namespace Domain.Vehicles.FeeCalculators
 {
     public class AssociationFeeCalculator
     {
