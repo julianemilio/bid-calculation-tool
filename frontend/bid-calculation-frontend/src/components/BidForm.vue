@@ -13,7 +13,7 @@
 
     <div>
       <label class="block text-sm font-medium mb-1 text-transparent bg-clip-text bg-gradient-to-r from-[#A37F57] to-[#f5deb3] ">Vehicle Type</label>
-      <div class="flex space-x-6">
+      <div class="flex space-x-8">
         <label class="inline-flex items-center space-x-2">
           <input type="radio" :value="0" v-model.number="vehicleType" class="form-radio text-yellow-500 bg-neutral-800 border-neutral-600" />
           <span>Common</span>
