@@ -104,3 +104,20 @@ dotnet test
 | $1,800.00     | Luxury | $180.00   | $72.00      | $15.00          | $100.00     | $2,167.00     |
 | $1,100.00     | Common | $50.00    | $22.00      | $15.00          | $100.00     | $1,287.00     |
 | $1,000,000.00 | Luxury | $200.00   | $40,000.00  | $20.00          | $100.00     | $1,040,320.00 |
+
+## 📌 Notes
+
+This application was developed as part of a coding challenge. For production-readiness:
+
+- Add authentication/authorization
+- Add proper error handling/logging
+- Add responsive layout
+- Improve frontend testing (e.g., with Vitest or Cypress)
+
+## 📎 License
+
+MIT License.
+
+---
+
+Made with ❤️ by [Julian Osorio](https://github.com/julianemilio)
