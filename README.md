@@ -21,7 +21,6 @@ BidCalculationTool/
 ├── bid-calculation-frontend/      # Vue.js 3 frontend
 │   ├── api/                       # Axios HTTP client
 │   ├── components/                # Reusable UI components
-│   ├── services/                  # Business logic services (fee calculation)
 │   └── views/                     # Main page UI
 ```
 
