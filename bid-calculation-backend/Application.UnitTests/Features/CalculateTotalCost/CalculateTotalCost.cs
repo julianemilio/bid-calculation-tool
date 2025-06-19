@@ -2,26 +2,25 @@
 using Application.Features.CalculateTotalCost;
 using Domain.Vehicles.Enums;
 using Domain.Vehicles.Exeptions;
-using Domain.Vehicles.FeeCalculators;
+using Domain.Vehicles.FeeCalculators.Interfaces;
 using Moq;
-using Xunit;
 
 namespace Application.UnitTests.Features.CalculateTotalCost;
 
 public class CalculateTotalCostQueryHandlerTests
 {
     private readonly CalculateTotalCostQueryHandler _handler;
-    private readonly Mock<BasicFeeCalculator> _basicFeeCalculatorMock;
-    private readonly Mock<SpecialFeeCalculator> _specialFeeCalculatorMock;
-    private readonly Mock<AssociationFeeCalculator> _associationFeeCalculatorMock;
-    private readonly Mock<StorageFee> _storageFeeMock;
+    private readonly Mock<IBasicFeeCalculator> _basicFeeCalculatorMock;
+    private readonly Mock<ISpecialFeeCalculator> _specialFeeCalculatorMock;
+    private readonly Mock<IAssociationFeeCalculator> _associationFeeCalculatorMock;
+    private readonly Mock<IStorageFee> _storageFeeMock;
 
     public CalculateTotalCostQueryHandlerTests()
     {
-        _basicFeeCalculatorMock = new Mock<BasicFeeCalculator>();
-        _specialFeeCalculatorMock = new Mock<SpecialFeeCalculator>();
-        _associationFeeCalculatorMock = new Mock<AssociationFeeCalculator>();
-        _storageFeeMock = new Mock<StorageFee>();
+        _basicFeeCalculatorMock = new Mock<IBasicFeeCalculator>();
+        _specialFeeCalculatorMock = new Mock<ISpecialFeeCalculator>();
+        _associationFeeCalculatorMock = new Mock<IAssociationFeeCalculator>();
+        _storageFeeMock = new Mock<IStorageFee>();
 
         _handler = new CalculateTotalCostQueryHandler(
             _basicFeeCalculatorMock.Object,

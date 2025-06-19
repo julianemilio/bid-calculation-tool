@@ -1,9 +1,10 @@
 ﻿using Domain.Vehicles.Enums;
 using Domain.Vehicles.Exeptions;
+using Domain.Vehicles.FeeCalculators.Interfaces;
 
 namespace Domain.Vehicles.FeeCalculators
 {
-    public class BasicFeeCalculator
+    public class BasicFeeCalculator : IBasicFeeCalculator
     {
         public decimal Calculate(decimal price, VehicleType vehicleType)
         {

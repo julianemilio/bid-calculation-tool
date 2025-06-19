@@ -1,8 +1,9 @@
 ﻿using Domain.Vehicles.Exeptions;
+using Domain.Vehicles.FeeCalculators.Interfaces;
 
 namespace Domain.Vehicles.FeeCalculators
 {
-    public class AssociationFeeCalculator
+    public class AssociationFeeCalculator : IAssociationFeeCalculator
     {
         public decimal Calculate(decimal price)
         {

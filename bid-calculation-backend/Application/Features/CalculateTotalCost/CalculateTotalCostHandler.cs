@@ -1,16 +1,29 @@
 ﻿using Application.Abstractions;
 using Domain.Vehicles.Exeptions;
 using Domain.Vehicles.FeeCalculators;
+using Domain.Vehicles.FeeCalculators.Interfaces;
 
 namespace Application.Features.CalculateTotalCost;
 
 public class CalculateTotalCostQueryHandler
     : IQueryHandler<CalculateTotalCostQuery, CalculateTotalCostResult>
 {
-    private readonly BasicFeeCalculator _basicFeeCalculator;
-    private readonly SpecialFeeCalculator _specialFeeCalculator;
-    private readonly AssociationFeeCalculator _associationFeeCalculator;
-    private readonly StorageFee _storageFee;
+    private readonly IBasicFeeCalculator _basicFeeCalculator;
+    private readonly ISpecialFeeCalculator _specialFeeCalculator;
+    private readonly IAssociationFeeCalculator _associationFeeCalculator;
+    private readonly IStorageFee _storageFee;
+
+    public CalculateTotalCostQueryHandler(
+        IBasicFeeCalculator basicFeeCalculator,
+        ISpecialFeeCalculator specialFeeCalculator,
+        IAssociationFeeCalculator associationFeeCalculator,
+        IStorageFee storageFee)
+    {
+        _basicFeeCalculator = basicFeeCalculator;
+        _specialFeeCalculator = specialFeeCalculator;
+        _associationFeeCalculator = associationFeeCalculator;
+        _storageFee = storageFee;
+    }
 
     public CalculateTotalCostQueryHandler(
         BasicFeeCalculator basicFeeCalculator,
