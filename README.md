@@ -2,87 +2,94 @@
 
 A web application to calculate the total cost of a vehicle at an auction, considering dynamic fees based on vehicle type and price.
 
----
+## 🔧 Tech Stack
 
-## Features
+- **Backend:** .NET 8 Web API (C#)
+- **Frontend:** Vue.js 3 + Tailwind CSS
+- **Testing:** xUnit, Moq
+- **Build Tool:** Vite
 
-- **Fee Calculation**:
-  - Basic Buyer Fee (10% of price, with min/max based on vehicle type).
-  - Seller's Special Fee (2% for Common, 4% for Luxury).
-  - Association Fee (tiered: $5 to $20 based on price range).
-  - Fixed Storage Fee ($100).
-- **Dynamic UI**: Real-time updates when inputs change (Vue.js frontend).
-- **REST API**: Backend built with ASP.NET Core (or specified language).
-- **Unit Tests**: Comprehensive tests for domain logic and components.
+## 📦 Project Structure
 
----
-
-## Technologies Used
-
-- **Backend**: ASP.NET Core (or language specified in job description)
-- **Frontend**: Vue.js
-- **Testing**: xUnit (backend), Jest (frontend)
-
----
-
-## Installation
-
-1. **Clone the repository**:
-
-   ```bash
-   git clone https://github.com/yourusername/bid-calculation-tool.git
-   cd bid-calculation-tool
-
-   ```
-
-2. **Backend Setup**:
-
-   ```bash
-   cd src/WebApi
-   dotnet restore
-   dotnet run
-   ```
-
-   - API runs on http://localhost:5000.
-
-3. **Frontend Setup**:
-   ```bash
-   npm install
-   npm run serve
-   ```
-   - Frontend runs on http://localhost:8080.
-
----
-
-## Project Structure
-
-```bash
-src/
-├── Domain/               # Core business logic
-│   └── Vehicles/         # Fee calculators, enums, exceptions
-├── Application/          # Use cases and interfaces
-├── WebApi/               # REST API endpoints
-│   └── Controllers/      # BidController handles /api/calculate
-└── Frontend/             # Vue.js UI components
-tests/                    # Unit tests
+```
+BidCalculationTool/
+├── bid-calculation-backend/       # .NET Web API backend
+│   ├── Application/               # Application layer (CQRS, handlers)
+│   ├── Domain/                    # Business models and calculators
+│   ├── Infrastructure/            # Empty, only for the future.
+│   └── WebAPI/                    # API controllers and startup
+├── bid-calculation-frontend/      # Vue.js 3 frontend
+│   ├── api/                       # Axios HTTP client
+│   ├── components/                # Reusable UI components
+│   ├── services/                  # Business logic services (fee calculation)
+│   └── views/                     # Main page UI
 ```
 
----
+## 📈 Features
 
-## Running Tests
+- Enter **base price** of the vehicle
+- Select **vehicle type**: Common or Luxury
+- Display individual **fees**:
+  - Basic buyer fee (10% with min/max)
+  - Seller's special fee
+  - Association fee (based on tiers)
+  - Storage fee (fixed $100)
+- Total price updates **automatically** with any change
 
-**Backend Tests**:
+## 🧮 Fee Calculation Rules
+
+| Fee                | Common                                                                     | Luxury                 |
+| ------------------ | -------------------------------------------------------------------------- | ---------------------- |
+| Basic Buyer Fee    | 10%, min $10, max $50                                                      | 10%, min $25, max $200 |
+| Special Seller Fee | 2% of base price                                                           | 4% of base price       |
+| Association Fee    | $5 if $1-$500<br>$10 if $501-$1000<br>$15 if $1001-$3000<br>$20 if > $3000 | Same as Common         |
+| Storage Fee        | $100 fixed                                                                 | $100 fixed             |
+
+## 🖼️ UI Preview
+
+![Descripción de la imagen](/image.png)
+
+> The user interface is styled using Tailwind CSS for a clean and modern look. It features gradient text labels, dark theme inputs, and instant feedback on calculations.
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- [.NET 8 SDK](https://dotnet.microsoft.com/en-us/download)
+- [Node.js & npm](https://nodejs.org/)
+- [Vue CLI (optional)](https://cli.vuejs.org/)
+
+### Backend
 
 ```bash
-cd tests/Domain.UnitTests
+cd bid-calculation-backend
+dotnet build
 dotnet test
+dotnet run --project WebAPI
 ```
 
-**Frontend Tests**:
+### Frontend
 
 ```bash
-cd src/Frontend
-npm run test:unit
+cd bid-calculation-frontend
+npm install
+npm run dev
+```
+
+---
+
+## 🧪 Testing
+
+Unit tests have been implemented for:
+
+- Fee calculators (BasicFee, SpecialFee, AssociationFee, StorageFee)
+- Application layer (use cases)
+
+**Running Tests**
+
+```bash
+cd bid-calculation-backend/tests
+dotnet test
 ```
 
 ---
