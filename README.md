@@ -120,4 +120,4 @@ MIT License.
 
 ---
 
-Made with ❤️ by [Julian Osorio](https://github.com/julianemilio)
+Made with ❤️ by [Julian Osorio](https://www.linkedin.com/in/julian-emilio-osorio-larroche-574591150/)
